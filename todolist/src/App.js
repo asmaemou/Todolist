@@ -1,15 +1,31 @@
 import './App.css';
-import React from 'react';
+import React,{useState} from 'react';
 import Header from "./components/Header";
+import Form from "./components/Form";
+import Todoslist from './components/TodosList';
 
 const App=()=> {
-    return(<div className="container">
-      <div className="app-wrapper">
-        <div>
-          <Header/>
-        </div>
+  const[input,setInput]=useState("");
+  const[todos,setTodos]=useState([]);
+  return(
+  <div className="container">
+    <div className="app-wrapper">
+      <div>
+        <Header/>
+      </div>
+      <div>
+        <Form
+          input ={input}
+          setInput={setInput}
+          todos={todos}
+          setTodos={setTodos}
+        />
+      </div>
+      <div>
+        <Todoslist/>
       </div>
     </div>
-    );
+  </div>
+  );
 };
 export default App;
